@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Modal
 } from "react-native";
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "./login/HomeScreen";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
@@ -16,9 +16,12 @@ export function Main() {
 
   const insets = useSafeAreaInsets()
   return (
-    <View style={{paddingTop: insets.top, paddingBottom: insets.bottom}}>
+    <View   style={{
+        flex: 1, // <-- ¡esto es lo que faltaba!
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+      }}>
       <StatusBar style="auto"/> 
-      <Text style={styles.titulo}>Donde yo quiero</Text>
       <HomeScreen/>
     </View>
   );

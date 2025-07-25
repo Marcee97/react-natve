@@ -7,8 +7,8 @@ export const allUsuarios = async(req, res) => {
 }
 
 
-export const newUsers = async() => {
+export const newUsers = async(req, res) => {
+    const{nombre, apellido} = req.body
     const result = await pool.query('INSERT INTO usuarios (nombre, apellido) VALUES (?, ?)', [nombre, apellido])
-
     console.log(result)
 }
