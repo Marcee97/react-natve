@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { View, Text, StyleSheet, Button, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { login } from "./stylesLogin.js";
 import { BlurView } from "expo-blur";
 export default function HomeScreen() {
@@ -24,26 +25,34 @@ export default function HomeScreen() {
   };
   return (
     <View style={login.login}>
-      <BlurView style={login.contlogin} intensity={100} tint="dark">
+      <View style={login.icons}>
 
-      
-      <TextInput
-        placeholder="Nombre"
-        style={login.inputnombre}
-        onChangeText={setInputnombre}
+<MaterialCommunityIcons name="beer" size={32} color="#fff" /><MaterialCommunityIcons name="glass-mug-variant" size={32} color="#fff" />
+<MaterialCommunityIcons name="bottle-wine" size={32} color="#fff" />
+<MaterialCommunityIcons name="cupcake" size={32} color="#fff" />
+      </View>
+      <BlurView style={login.contlogin} intensity={100} tint="dark">
+        <TextInput
+          placeholder="Nombre"
+          placeholderTextColor={"#575656ff"}
+          style={login.inputnombre}
+          onChangeText={setInputnombre}
         />
-      <TextInput
-        placeholder="Apellido"
-        style={login.inputnombre}
-        onChangeText={setInputApellido}
+        <TextInput
+          placeholder="Apellido"
+          placeholderTextColor={"#575656ff"}
+          style={login.inputnombre}
+          onChangeText={setInputApellido}
         />
-     <TouchableOpacity style={login.touchablebtn}>
-      <Text style={login.touchabletext}>Login</Text>
-     </TouchableOpacity>
-    <Text style={login.tenescuenta}>¿Ya tenes cuenta?</Text>
-    <Text style={login.tenescuenta}>Registrate</Text>
-        
-        </BlurView>
+        <TouchableOpacity style={login.touchablebtn}>
+          <Text style={login.touchabletext}>Sign In</Text>
+        </TouchableOpacity>
+        <View style={login.cont_redes}>
+         
+        </View>
+        <Text style={login.tenescuenta}>¿Ya tenes cuenta?</Text>
+        <Text style={login.tenescuenta}>Registrate</Text>
+      </BlurView>
     </View>
   );
 }
